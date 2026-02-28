@@ -30,10 +30,10 @@ echo "127.0.0.1 ${SERVERNAME}" >> /etc/hosts 2>/dev/null || true
   curl -sk -b "$COOKIE_FILE" \
     "$POST_URL" \
     --data-urlencode "installing=0" \
-    --data-urlencode "adminUsername=admin" \
-    --data-urlencode "adminPassword=admin" \
-    --data-urlencode "adminPassword2=admin" \
-    --data-urlencode "adminEmail=admin@${SERVERNAME}.org" \
+    --data-urlencode "adminUsername=${PKP_ADMIN_USER:-admin}" \
+    --data-urlencode "adminPassword=${PKP_ADMIN_PASSWORD:-admin}" \
+    --data-urlencode "adminPassword2=${PKP_ADMIN_PASSWORD:-admin}" \
+    --data-urlencode "adminEmail=${PKP_ADMIN_EMAIL:-admin@${SERVERNAME}.org}" \
     --data-urlencode "locale=en" \
     --data-urlencode "additionalLocales[]=en" \
     --data-urlencode "clientCharset=utf-8" \
